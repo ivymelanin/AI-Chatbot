@@ -48,3 +48,21 @@ body{
     margin-top: -5px;
     color: var(--subheading-color);
 }
+
+.container .suggestions{
+    display: flex;
+    gap: 15px;
+    margin-top: 9.5vh;
+    list-style: none;
+    overflow-x: auto;
+}
+
+.suggestions .sugg-items{
+    width: 228px;
+    padding: 18px;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    border-radius: 12px;
+    background: var(--secondary-color);
+}
