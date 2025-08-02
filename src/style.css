@@ -23,3 +23,8 @@ body{
 .container{
     padding: 32px 0 60px;
 }
+
+.container :where(.app-header, .suggestions, .prompt-wrapper){
+    margin: 0 auto;
+    width: 100%;
+}
