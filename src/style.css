@@ -72,15 +72,15 @@ body{
     transition: 0.3s ease;
 }
 
-.suggestions .sugg-items:hover{
+.suggestions .sug-items:hover{
     background: var(--secondary-hover-color);
 }
 
-.suggestions .sugg-items .text{
+.suggestions .sug-items .text{
     font-size: 1.1rem;
 }
 
-.suggestions .sugg-items span{
+.suggestions .sug-items span{
     height: 45px;
     width: 45px;
     margin-top: 35px;
@@ -91,4 +91,14 @@ body{
     border-radius: 50%;
     color: #1d7efd;
     background: var(--primary-color);
+}
+
+.suggestions .sug-items:nth-child(2) span{
+    color: #28a745;
+}
+.suggestions .sug-items:nth-child(3) span{
+    color: #ffc107;
+}
+.suggestions .sug-items:nth-child(4) span{
+    color: #6f42c1;
 }
