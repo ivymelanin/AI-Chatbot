@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LeratoChat Chatbot</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Rajdhani:wght@300;400;500;600;700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header class="app-header">
+            <h1 class="heading">Hello, there</h1>
+            <h2 class="sub-heading">How can I help you?</h2>
+        </header>
+
+        <ul class="suggestions">
+            <li class="sug-items">
+                <p class="text">Desing a home office setup for remote work under R3000</p>
+                <span class="material-symbols-rounded">draw</span>
+            </li>
+            <li class="sug-items">
+                <p class="text">Suggest some useful tools to use to debug JavaScript</p>
+                <span class="material-symbols-rounded">explore</span>
+            </li>
+            <li class="sug-items">
+                <p class="text">How can I level up my skills in Web Development</p>
+                <span class="material-symbols-rounded">lightbulb</span>
+            </li>
+            <li class="sug-items">
+                <p class="text">Create for me a simple todo list app in React</p>
+                <span class="material-symbols-rounded">code_blocks</span>
+            </li>
+        </ul>
+
+        <div class="prompt-container">
+            <div class="promt-wrapper">
+                <form action="#" class="promt-form">
+                    <input type="text" placeholder="Ask LeratoChat" class="prompt-input" required>
+                    <div class="prompt-actions">
+                        <button type="button" id="add-file-btn" class="material-symbols-rounded">attach_file</button>
+                        <button type="button" id="send-prompt-btn" class="material-symbols-rounded">arrow_upward</button>
+                    </div>
+                </form>
+
+                <button type="button" id="theme-toggle-btn" class="material-symbols-rounded">light_mode</button>
+                <button type="button" id="delete-btn" class="material-symbols-rounded">delete</button>
+            </div>
+            <p class="disclaimer-text">
+                LeratoChat can make mistakes so make sure you double check.
+            </p>
+        </div>
+    </div>
+</body>
+</html>
