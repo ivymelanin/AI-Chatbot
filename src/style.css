@@ -41,6 +41,7 @@ body{
     background: linear-gradient(to right, #1d7efd, #8f6fff);
     background-clip: text;
     -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
 }
 
 .app-header .sub-heading{
