@@ -104,7 +104,7 @@ body{
     color: #6f42c1;
 }
 
-.prompt-container{
+.prompt-container .prompt-input{
     position: fixed;
     bottom: 0;
     left: 0;
