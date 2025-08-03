@@ -152,4 +152,30 @@ body{
     flex-shrink: 0;
     color: var(--text-color);
     background: var(--secondary-color);
+    transition: 0.3s ease;
+}
+
+.prompt-wrapper button:hover{
+    background: var(--secondary-hover-color);
+}
+.prompt-form .prompt-actions{
+    gap: 5px;
+    margin-right: 7px;
+}
+
+.prompt-form .prompt-actions button{
+    height: 45px;
+    width: 45px;
+}
+
+.prompt-form #send-prompt-btn{
+    color: #fff;
+    background: #1d7efd;
+}
+
+.prompt-container .disclaimer-text{
+    text-align: center;
+    font-size: 0.9rem;
+    padding: 16px 20px 0;
+    color: var(--placeholder-color);
 }
