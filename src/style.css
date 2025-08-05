@@ -59,6 +59,10 @@ body{
     scrollbar-width: none;
 }
 
+.container :is(.app-header, .suggestions){
+    display: none;
+}
+
 .suggestions .sugg-items{
     width: 228px;
     padding: 18px;
@@ -171,6 +175,11 @@ body{
 .prompt-form #send-prompt-btn{
     color: #fff;
     background: #1d7efd;
+    display: none;
+}
+
+.prompt-form .prompt-input:valid ~ .prompt-actions #send-prompt-btn{
+    display: block;
 }
 
 .prompt-container .disclaimer-text{
