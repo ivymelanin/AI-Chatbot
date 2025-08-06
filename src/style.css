@@ -135,6 +135,10 @@ body{
     border: 1px solid var(--secondary-hover-color);
 }
 
+.message{
+    display: none;
+}
+
 .chats-container .bot-message.loading .icon{
     animation: rotate 3s linear infinite;
 }
