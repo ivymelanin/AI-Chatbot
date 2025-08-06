@@ -1,3 +1,4 @@
+const container = document.querySelector(".container");
 const chatsContainer = document.querySelector(".chats-container");
 const promptForm = document.querySelector(".prompt-form");
 const promptInput = promptForm.querySelector(".prompt-input");
@@ -17,6 +18,9 @@ const createMsgElement = (content, ...classes) => {
     return div;
 }
 
+// Scroll to the bottom of the container
+const scrollToBottom = () => container.scrollTo({ top: container.scrollHeight, behavior: "smooth"});
+
 // Simulate typng effect for bot response
 const typingEffect = (text, textElement, botMsgDiv) => {
     textElement.textContent = "";
@@ -28,6 +32,7 @@ const typingEffect = (text, textElement, botMsgDiv) => {
         if(wordIndex < words.length){
             textElement.textContent += (wordIndex === 0 ? "": " ") + words[wordIndex++]; 
             botMsgDiv.classList.remove("loading");
+            scrollToBottom();
         } else{
             clearInterval(typingInterval);
         }
@@ -68,18 +73,21 @@ const handleFormSubmit = (e) => {
     if(!userMessage) return;
 
     promptInput.value = "";
+
     // Generate user message HTML and add in the chats container
     const userMsgHTML = `<p class="message-text"></p>`;
     const userMsgDiv = createMsgElement(userMsgHTML, "user-message");
 
     userMsgDiv.querySelector(".message-text").textContent = userMessage;
     chatsContainer.appendChild(userMsgDiv);
+    scrollToBottom();
 
     setTimeout(() => {
-        // Generate user message HTML and add in the chats container after 600ms
+        // Generate bot message HTML and add in the chats container after 600ms
         const botMsgHTML = `<img src="src/media/loading_icon_small_transparent.png" class="icon"><p class="message-text">Just a sec...</p>`;
         const botMsgDiv = createMsgElement(botMsgHTML, "bot-message", "loading");
         chatsContainer.appendChild(botMsgDiv);
+        scrollToBottom();
         generateResponse(botMsgDiv);
     }, 600);
 }
