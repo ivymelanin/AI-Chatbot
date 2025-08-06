@@ -217,7 +217,7 @@ body{
     transition: 0.3s ease;
 }
 
-.prompt-wrapper button:hover{
+.prompt-wrapper :is(button:hover, .file-icon, #cancel-file-btn){
     background: var(--secondary-hover-color);
 }
 
@@ -262,6 +262,10 @@ body{
 
 .prompt-form #cancel-file-btn{
     color: #d62939;
+}
+
+.prompt-form .file-icon{
+    color: #1d7efd;
 }
 
 .prompt-container .disclaimer-text{
