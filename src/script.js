@@ -106,8 +106,13 @@ fileInput.addEventListener("change", () => {
     reader.onload = (e) => {
         fileInput.value = "";
         fileUploadWrapper.querySelector(".file-preview").src = e.target.result;
-        fileUploadWrapper.classList.add("active", isImage ? "img-attached" : "file-attached");
+        fileUploadWrapper.classList.add("active", "img-attached", "file-attached");
     }
+});
+
+// Cancel file upload
+document.querySelector("#cancel-file-btn").addEventListener("clicked", () => {
+    fileUploadWrapper.classList.remove("active", isImage ? "img-attached" : "file-attached");
 });
 
 promptForm.addEventListener("submit", handleFormSubmit);
