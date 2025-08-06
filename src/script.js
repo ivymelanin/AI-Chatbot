@@ -17,7 +17,8 @@ const createMsgElement = (content, ...classes) => {
     return div;
 }
  // Make the API call and generate the bot's response
-const generateResponse = async () => {
+const generateResponse = async (botMsgHTML) => {
+    const textElement = botMsgHTML.querySelector(".message-text");
     //Add user messages to the chat history
     chatHistory.push({
         role: "user",
@@ -34,7 +35,9 @@ const generateResponse = async () => {
         const data = await response.json();
         if(!response.ok) throw new Error(data.error.message);
 
-        console.log(data);
+        // Process the response text and display it
+        const responseText = data.candidates[0].content.parts[0].text.replace(/\*\*([^*]+)\*\*/g, "$1").trim();
+        textElement.textContent = responseText;
     } catch (error){
         console.log(error);
     }
@@ -59,7 +62,7 @@ const handleFormSubmit = (e) => {
         const botMsgHTML = `<img src="src/media/loading_icon_small_transparent.png" class="icon"><p class="message-text">Just a sec...</p>`;
         const botMsgDiv = createMsgElement(botMsgHTML, "bot-message", "loading");
         chatsContainer.appendChild(botMsgDiv);
-        generateResponse();
+        generateResponse(botMsgHTML);
     }, 600);
 }
 
