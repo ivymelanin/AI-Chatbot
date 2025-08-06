@@ -227,6 +227,16 @@ body{
     object-fit: cover;
     display: none;
 }
+.prompt-form .file-upload-wrapper.active #add-file-btn,
+.prompt-form .file-upload-wrapper.active img,
+.prompt-form .file-upload-wrapper.active:hover
+#cancel-file-btn{
+    display: block;
+}
+
+.prompt-form .file-upload-wrapper.active #add-file-btn{
+    display: none;
+}
 
 .prompt-form .prompt-actions{
     gap: 5px;
