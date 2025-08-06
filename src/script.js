@@ -26,8 +26,8 @@ const handleFormSubmit = (e) => {
 
     setTimeout(() => {
         // Generate user message HTML and add in the chats container after 600ms
-        const botMsgHTML = `<img src="src/media/loading_icon_small_transparent.png" class="icon">Just a sec...<p class="message-text"></p>`;
-        const botMsgDiv = createMsgElement(botMsgHTML, "user-message");
+        const botMsgHTML = `<img src="src/media/loading_icon_small_transparent.png" class="icon"><p class="message-text">Just a sec...</p>`;
+        const botMsgDiv = createMsgElement(botMsgHTML, "bot-message");
         chatsContainer.appendChild(botMsgDiv);
     }, 600);
 }
