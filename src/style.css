@@ -229,9 +229,9 @@ body{
 }
 
 .prompt-form .file-upload-wrapper #add-file-btn,
-.prompt-form .file-upload-wrapper.active img,
-.prompt-form .file-upload-wrapper.active:hover
-#cancel-file-btn{
+.prompt-form .file-upload-wrapper.active.img-attached img,
+.prompt-form .file-upload-wrapper.active.file-attached .file-icon,
+.prompt-form .file-upload-wrapper.active:hover #cancel-file-btn{
     display: block;
 }
 
