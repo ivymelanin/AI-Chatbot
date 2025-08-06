@@ -16,7 +16,7 @@ const createMsgElement = (content, className) => {
 const handleFormSubmit = (e) => {
     e.preventDefault();
     userMessage = promptInput.value.trim();
-    if(userMessage) return;
+    if(!userMessage) return;
     // Generate user message HTML and add in the chats container
     const userMsgHTML = `<p class="message-text"></p>`;
     const userMsgDiv = createMsgElement(userMsgHTML, "user-message");
