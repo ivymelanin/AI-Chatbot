@@ -43,7 +43,11 @@
                 <form action="#" class="prompt-form">
                     <input type="text" placeholder="Ask LeratoChat" class="prompt-input" required>
                     <div class="prompt-actions">
-                        <button type="button" id="add-file-btn" class="material-symbols-rounded">attach_file</button>
+                        <div class="file-upload-wrapper">
+                            <img src="src/media/myIcon.png" class="file-preview">
+                            <button type="button" id="add-file-btn" class="material-symbols-rounded">attach_file</button>
+                            <button type="button" id="cancel-file-btn" class="material-symbols-rounded">close</button>
+                        </div>
                         <button type="button" id="send-prompt-btn" class="material-symbols-rounded">arrow_upward</button>
                     </div>
                 </form>
