@@ -2,7 +2,7 @@ const container = document.querySelector(".container");
 const chatsContainer = document.querySelector(".chats-container");
 const promptForm = document.querySelector(".prompt-form");
 const promptInput = promptForm.querySelector(".prompt-input");
-const fileInput = promptForm.querySelector(".file-input");
+const fileInput = promptForm.querySelector("#file-input");
 
 //API Setup
 const API_KEY = "AIzaSyAQC_qO258b5szQoT6suXJ3erJ6GEqSGwc"
