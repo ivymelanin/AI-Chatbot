@@ -281,7 +281,7 @@ body{
     display: block;
 }
 
-.prompt-form #cancel-file-btn{
+.prompt-form :is(#cancel-file-btn, #stop-response-btn:hover){
     color: #d62939;
 }
 
