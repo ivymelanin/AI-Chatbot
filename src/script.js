@@ -84,7 +84,7 @@ const handleFormSubmit = (e) => {
 
     promptInput.value = "";
     userData.message = userMessage;
-    fileUploadWrapper.classList.add("active", isImage ? "img-attached" : "file-attached");
+    fileUploadWrapper.classList.add("active", "img-attached", "file-attached");
 
     // Generate user message HTML and add in the chats container
     const userMsgHTML = `
