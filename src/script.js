@@ -9,8 +9,8 @@ const fileUploadWrapper = promptForm.querySelector(".file-upload-wrapper");
 const API_KEY = "AIzaSyAQC_qO258b5szQoT6suXJ3erJ6GEqSGwc";
 const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${API_KEY}`;
 
-let userMessage = "";
 const chatHistory = [];
+let userData = { message: "", file: {} };
 
 //function to create message elements
 const createMsgElement = (content, ...classes) => {
@@ -42,13 +42,15 @@ const typingEffect = (text, textElement, botMsgDiv) => {
 }
 
  // Make the API call and generate the bot's response
-const generateResponse = async (botMsgDiv) => {
+ const generateResponse = async (botMsgDiv) => {
     const textElement = botMsgDiv.querySelector(".message-text");
-    //Add user messages to the chat history
+
+    //Add user messages and file to the chat history
     chatHistory.push({
         role: "user",
-        parts: [{ text: userMessage }]
+        parts: [{ text: userData.message }, ...(userData.file.data ? [{ inline_data: (({ fileName, isImage, ...rest }) => rest)(userData.file) }] : [])]
     });
+
     try{
         // Send the chat history to the API to get a response
         const response = await fetch(API_URL, {
@@ -63,6 +65,10 @@ const generateResponse = async (botMsgDiv) => {
         // Process the response text and display with typing effect
         const responseText = data.candidates[0].content.parts[0].text.replace(/\*\*([^*]+)\*\*/g, "$1").trim();
         typingEffect(responseText, textElement, botMsgDiv);
+
+        chatHistory.push({ role: "model", parts: [{ text: userData.responseText }]});
+
+        console.log(chatHistory);
     } catch (error){
         console.log(error);
     }
@@ -71,10 +77,11 @@ const generateResponse = async (botMsgDiv) => {
 //Handle the form submission
 const handleFormSubmit = (e) => {
     e.preventDefault();
-    userMessage = promptInput.value.trim();
+    const userMessage = promptInput.value.trim();
     if(!userMessage) return;
 
     promptInput.value = "";
+    userData.message = userMessage;
 
     // Generate user message HTML and add in the chats container
     const userMsgHTML = `<p class="message-text"></p>`;
@@ -105,8 +112,12 @@ fileInput.addEventListener("change", () => {
 
     reader.onload = (e) => {
         fileInput.value = "";
+        const base64String = e.target.result.trim(",")[1];
         fileUploadWrapper.querySelector(".file-preview").src = e.target.result;
         fileUploadWrapper.classList.add("active", isImage ? "img-attached" : "file-attached");
+
+        // Store file data in userdata obj
+        userData.file = {fileName: file.name, data: base64String, mime_type: file.type, isImage };
     }
 });
 
