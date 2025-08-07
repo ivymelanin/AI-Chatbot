@@ -9,6 +9,7 @@ const fileUploadWrapper = promptForm.querySelector(".file-upload-wrapper");
 const API_KEY = "AIzaSyAQC_qO258b5szQoT6suXJ3erJ6GEqSGwc";
 const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${API_KEY}`;
 
+let typingInterval, controller;
 const chatHistory = [];
 let userData = { message: "", file: {} };
 
@@ -30,7 +31,7 @@ const typingEffect = (text, textElement, botMsgDiv) => {
     let wordIndex = 0;
 
     // Set an interval to type each word
-    const typingInterval = setInterval(() =>{
+    typingInterval = setInterval(() =>{
         if(wordIndex < words.length){
             textElement.textContent += (wordIndex === 0 ? "": " ") + words[wordIndex++]; 
             botMsgDiv.classList.remove("loading");
@@ -44,6 +45,7 @@ const typingEffect = (text, textElement, botMsgDiv) => {
  // Make the API call and generate the bot's response
  const generateResponse = async (botMsgDiv) => {
     const textElement = botMsgDiv.querySelector(".message-text");
+    controller = new AbortController();
 
     //Add user messages and file to the chat history
     chatHistory.push({
@@ -56,7 +58,8 @@ const typingEffect = (text, textElement, botMsgDiv) => {
         const response = await fetch(API_URL, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ contents: chatHistory })
+            body: JSON.stringify({ contents: chatHistory }),
+            signal: controller.signal
         });
 
         const data = await response.json();
@@ -133,6 +136,13 @@ fileInput.addEventListener("change", () => {
 document.querySelector("#cancel-file-btn").addEventListener("click", () => {
     userData.file = {};
     fileUploadWrapper.classList.remove("active", "img-attached", "file-attached");
+});
+
+// Stop ongoing bot response
+document.querySelector("#stop-response-btn").addEventListener("click", () => {
+    userData.file = {};
+    controller?.abort();
+    clearInterval(typingInterval);
 });
 
 promptForm.addEventListener("submit", handleFormSubmit);
