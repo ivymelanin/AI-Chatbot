@@ -112,7 +112,7 @@ fileInput.addEventListener("change", () => {
 
     reader.onload = (e) => {
         fileInput.value = "";
-        const base64String = e.target.result.trim(",")[1];
+        const base64String = e.target.result.split(",")[1];
         fileUploadWrapper.querySelector(".file-preview").src = e.target.result;
         fileUploadWrapper.classList.add("active", isImage ? "img-attached" : "file-attached");
 
