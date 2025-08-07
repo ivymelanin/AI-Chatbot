@@ -111,7 +111,7 @@ fileInput.addEventListener("change", () => {
 });
 
 // Cancel file upload
-document.querySelector("#cancel-file-btn").addEventListener("clicked", () => {
+document.querySelector("#cancel-file-btn").addEventListener("click", () => {
     fileUploadWrapper.classList.remove("active", "img-attached", "file-attached");
 });
 
