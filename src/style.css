@@ -316,6 +316,19 @@ body.bot-responding .prompt-form #stop-response-btn{
 }
 
 @media (max-width: 768px){
+    .container{
+        padding: 20px 0 100px;
+    }
+
+    .app-header :is(.heading, .sub-heading){
+        font-size: 2rem;
+        line-height: 1.4;
+    }
+
+    .prompt-form .file-upload-wrapper.active #cancel-file-btn{
+        opacity: 0;
+    }
+    
     .prompt-wrapper.hide-controls :where(#theme-toggle-btn, #delete-btn){
         display: none;
     }
