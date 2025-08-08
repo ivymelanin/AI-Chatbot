@@ -92,7 +92,7 @@ const handleFormSubmit = (e) => {
 
     promptInput.value = "";
     userData.message = userMessage;
-    document.body.classList.add("bot-responding");
+    document.body.classList.add("bot-responding", "chats-active");
     fileUploadWrapper.classList.remove("active", "img-attached", "file-attached");
 
     // Generate user message HTML and add in the chats container
@@ -157,7 +157,7 @@ document.querySelector("#stop-response-btn").addEventListener("click", () => {
 document.querySelector("#delete-btn").addEventListener("click", () => {
     chatHistory.length = 0;
     chatsContainer.innerHTML = "";
-    document.body.classList.remove("bot-responding");
+    document.body.classList.remove("bot-responding", "chats-active");
 });
 
 
