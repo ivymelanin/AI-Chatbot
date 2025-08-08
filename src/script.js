@@ -169,6 +169,14 @@ document.querySelectorAll(".sug-items").forEach(item => {
     });
 });
 
+// Show/hide for mobile on prompt input focus
+document.addEventListener("click", ({ target }) => {
+    const wrapper = document.querySelector(".prompt-wrapper");
+    const shouldHide = target.classList.contains("prompt-input") || (wrapper.classList.contains
+    ("hide-controls") && (target.id === "add-file-btn" || target.id === "stop-response-btn"));
+    wrapper.classList.toggle("hide-controls", shouldHide);
+});
+
 // Toggle dark/light theme
 themeToggle.addEventListener("click", () => {
     const isLightTheme = document.body.classList.toggle("light-theme");
