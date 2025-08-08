@@ -86,7 +86,7 @@ body.chats-active .container :where(.app-header, .suggestions){
     justify-content: space-between;
     cursor: pointer;
     border-radius: 12px;
-    background: var(--secondary-color);
+    background: red;
     transition: 0.3s ease;
 }
 
