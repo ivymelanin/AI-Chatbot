@@ -145,7 +145,7 @@ document.querySelector("#stop-response-btn").addEventListener("click", () => {
     userData.file = {};
     controller?.abort();
     clearInterval(typingInterval);
-    chatsContainer.querySelector(".bot-responding.loading").classList.remove("loading");
+    chatsContainer.querySelector(".bot-message.loading").classList.remove("loading");
     document.body.classList.remove("bot-responding");
 });
 
