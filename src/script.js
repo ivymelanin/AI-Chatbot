@@ -71,9 +71,7 @@ const typingEffect = (text, textElement, botMsgDiv) => {
         const responseText = data.candidates[0].content.parts[0].text.replace(/\*\*([^*]+)\*\*/g, "$1").trim();
         typingEffect(responseText, textElement, botMsgDiv);
 
-        chatHistory.push({ role: "model", parts: [{ text: userData.responseText }]});
-
-        console.log(chatHistory);
+        chatHistory.push({ role: "model", parts: [{ text: responseText }]});
     } catch (error){
         textElement.style.color = "#d62939";
         textElement.textContent = error.name === "AbortError" ? "Response generation stopped." : error.message;
