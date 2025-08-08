@@ -76,7 +76,7 @@ body.chats-active .container :where(.app-header, .suggestions){
     display: none;
 }
 
-.suggestions .sugg-items{
+.suggestions .sug-items{
     width: 228px;
     padding: 18px;
     flex-shrink: 0;
@@ -86,7 +86,7 @@ body.chats-active .container :where(.app-header, .suggestions){
     justify-content: space-between;
     cursor: pointer;
     border-radius: 12px;
-    background: red;
+    background: var(--secondary-color);
     transition: 0.3s ease;
 }
 
