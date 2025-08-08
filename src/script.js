@@ -162,6 +162,7 @@ document.querySelector("#delete-btn").addEventListener("click", () => {
 
 themeToggle.addEventListener("click", () => {
     const isLightTheme = document.body.classList.toggle("light-theme");
+    
     themeToggle.textContent = isLightTheme ? "dark_mode" : "light_mode";
 });
 
