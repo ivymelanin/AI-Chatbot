@@ -160,11 +160,17 @@ document.querySelector("#delete-btn").addEventListener("click", () => {
     document.body.classList.remove("bot-responding");
 });
 
+// Toggle dark/light theme
 themeToggle.addEventListener("click", () => {
     const isLightTheme = document.body.classList.toggle("light-theme");
-    
+    localStorage.setItem("themeColor", isLightTheme ? "light_mode" : "dark_mode");
     themeToggle.textContent = isLightTheme ? "dark_mode" : "light_mode";
 });
+
+// Set initial theme from local storage
+const isLightTheme = localStorage.getItem("themeColor") === "light_mode";
+document.body.classList.toggle("light-theme", isLightTheme);
+themeToggle.textContent = isLightTheme ? "dark_mode" : "light_mode";
 
 promptForm.addEventListener("submit", handleFormSubmit);
 promptForm.querySelector("#add-file-btn").addEventListener("click", () => fileInput.click());
