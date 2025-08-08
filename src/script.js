@@ -4,6 +4,7 @@ const promptForm = document.querySelector(".prompt-form");
 const promptInput = promptForm.querySelector(".prompt-input");
 const fileInput = promptForm.querySelector("#file-input");
 const fileUploadWrapper = promptForm.querySelector(".file-upload-wrapper");
+const themeToggle = document.querySelector("#theme-toggle-btn");
 
 //API Setup
 const API_KEY = "AIzaSyAQC_qO258b5szQoT6suXJ3erJ6GEqSGwc";
@@ -157,6 +158,11 @@ document.querySelector("#delete-btn").addEventListener("click", () => {
     chatHistory.length = 0;
     chatsContainer.innerHTML = "";
     document.body.classList.remove("bot-responding");
+});
+
+themeToggle.addEventListener("click", () => {
+    const isLightTheme = document.body.classList.toggle("light-theme");
+    themeToggle.textContent = isLightTheme ? "dark_mode" : "light_mode";
 });
 
 promptForm.addEventListener("submit", handleFormSubmit);
