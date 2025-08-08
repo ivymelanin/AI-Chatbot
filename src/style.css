@@ -72,7 +72,7 @@ body{
     scrollbar-width: none;
 }
 
-body.chats-active :is(.app-header, .suggestions){
+body.chats-active :where(.app-header, .suggestions){
     display: none;
 }
 
