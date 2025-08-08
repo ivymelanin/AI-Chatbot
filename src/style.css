@@ -15,6 +15,16 @@
     --scrollbar-color: #626a7f;
 }
 
+body.light-theme{
+    --text-color: #090c13;
+    --subheading-color: #7b8cae;
+    --placeholder-color: #606982;
+    --primary-color: #f3f7ff;
+    --secondary-color: #dce6f9;
+    --secondary-hover-color: #d2ddf2;
+    --scrollbar-color: #a2aac2;
+}
+
 body{
     background: var(--primary-color);
     color: var(--text-color);
