@@ -34,10 +34,11 @@ const typingEffect = (text, textElement, botMsgDiv) => {
     typingInterval = setInterval(() =>{
         if(wordIndex < words.length){
             textElement.textContent += (wordIndex === 0 ? "": " ") + words[wordIndex++]; 
-            botMsgDiv.classList.remove("loading");
             scrollToBottom();
         } else{
             clearInterval(typingInterval);
+            botMsgDiv.classList.remove("loading");
+            document.body.classList.remove("bot-responding");
         }
     }, 40);
 }
@@ -87,6 +88,7 @@ const handleFormSubmit = (e) => {
 
     promptInput.value = "";
     userData.message = userMessage;
+    document.body.classList.add("bot-responding");
     fileUploadWrapper.classList.remove("active", "img-attached", "file-attached");
 
     // Generate user message HTML and add in the chats container
@@ -143,6 +145,8 @@ document.querySelector("#stop-response-btn").addEventListener("click", () => {
     userData.file = {};
     controller?.abort();
     clearInterval(typingInterval);
+    chatsContainer.querySelector(".bot-responding.loading").classList.remove("loading");
+    document.body.classList.remove("bot-responding");
 });
 
 promptForm.addEventListener("submit", handleFormSubmit);
