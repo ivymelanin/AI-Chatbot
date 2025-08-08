@@ -115,7 +115,7 @@ const handleFormSubmit = (e) => {
         chatsContainer.appendChild(botMsgDiv);
         scrollToBottom();
         generateResponse(botMsgDiv);
-    }, 600);
+    }, 100);
 }
 
 // Handle file input change (file upload)
