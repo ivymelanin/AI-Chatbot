@@ -72,8 +72,8 @@ body{
     scrollbar-width: none;
 }
 
-.container :is(.app-header, .suggestions){
-    /*display: none;*/
+body.chats-active :is(.app-header, .suggestions){
+    display: none;
 }
 
 .suggestions .sugg-items{
