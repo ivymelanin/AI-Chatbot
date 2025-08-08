@@ -74,7 +74,10 @@ const typingEffect = (text, textElement, botMsgDiv) => {
 
         console.log(chatHistory);
     } catch (error){
-        console.log(error);
+        textElement.style.color = "#d62939";
+        textElement.textContent = error.name === "AbortError" ? "Response generation stopped." : error.message;
+        botMsgDiv.classList.remove("loading");
+        document.body.classList.remove("bot-responding");
     } finally {
         userData.file = {};
     }
@@ -111,7 +114,7 @@ const handleFormSubmit = (e) => {
         chatsContainer.appendChild(botMsgDiv);
         scrollToBottom();
         generateResponse(botMsgDiv);
-    }, 50);
+    }, 600);
 }
 
 // Handle file input change (file upload)
