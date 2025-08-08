@@ -150,8 +150,8 @@ document.querySelector("#stop-response-btn").addEventListener("click", () => {
 });
 
 // Delete all chats 
-document.querySelector("#delete-chats-btn").addEventListener("click", () => {
-    chatHistory.length =0;
+document.querySelector("#delete-btn").addEventListener("click", () => {
+    chatHistory.length = 0;
     chatsContainer.innerHTML = "";
     document.body.classList.remove("bot-responding");
 });
