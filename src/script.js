@@ -10,7 +10,7 @@ const themeToggle = document.querySelector("#theme-toggle-btn");
 require ("dotenv").config();
 
 const apiKey = process.env.API_KEY;
-const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${process.env.mySecretKey}`;
+const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`;
 
 let typingInterval, controller;
 const chatHistory = [];
