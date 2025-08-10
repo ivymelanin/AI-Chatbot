@@ -7,38 +7,8 @@ const fileUploadWrapper = promptForm.querySelector(".file-upload-wrapper");
 const themeToggle = document.querySelector("#theme-toggle-btn");
 
 //API Setup
-require('dotenv').config();
-const express = require('express');
-const fetch = require('node-fetch');
-const cors = require('cors');
-
-const app = express();
-
-// Allow your frontend to call the backend
-app.use(cors());
-app.use(express.json({ limit: '10mb' })); // Support base64 file uploads
-
-app.post('/api/chat', async (req, res) => {
-    try {
-        // The request body should be: { contents: chatHistory }
-        const apiRes = await fetch(
-            `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${process.env.API_KEY}`,
-            {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(req.body)
-            }
-        );
-
-        const data = await apiRes.json();
-        res.json(data);
-    } catch (err) {
-        res.status(500).json({ error: err.message });
-    }
-});
-
-app.listen(3000, () => console.log('Server running on http://localhost:3000'));
-
+const apiKey = AIzaSyAQC_qO258b5szQoT6suXJ3erJ6GEqSGwc;
+const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`;
 
 let typingInterval, controller;
 const chatHistory = [];
@@ -87,7 +57,7 @@ const typingEffect = (text, textElement, botMsgDiv) => {
 
     try{
         // Send the chat history to the API to get a response
-        const response = await fetch("http://localhost:3000/api/chat", {
+        const response = await fetch(API_URL, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ contents: chatHistory }),
